@@ -33,7 +33,52 @@ func main() {
 			fmt.Println("Result: ", result)
 		},
 	}
+	var cmdSub = &cobra.Command {
+		Use: "sub",
+		Short: "sub n numbers",
+		Long: "receives a variablle quantity of numbers and returns the sub of them",
+		Run: func(cmd *cobra.Command, args []string) {
+			numbers, err := utils.StringToNumbers(args)
+			if err != nil {
+				return
+			}
 
+			result, _ := calc.Sub(numbers...)
+			fmt.Println("Result: ", result)
+		},
+	}
+	var cmdMulti = &cobra.Command{
+		Use: "multi",
+		Short: "multiply n numbers",
+		Long: "receives a variable quatity of numbers and returns the sub of them",
+		Run: func(cmd *cobra.Command, args []string) {
+			numbers, err := utils.StringToNumbers(args)
+			if err != nil {
+				return
+			}
+
+			result, _ := calc.Multi(numbers...)
+			fmt.Println("Result: ", result)
+		},
+	}
+	var cmdDiv = &cobra.Command{
+		Use: "div",
+		Short: "divide n numeros",
+		Long: "recebe uma quantidade variavel de numeros e retorna o resultado da divisão",
+		Run: func(cmd *cobra.Command, args []string) {
+			numbers, err := utils.StringToNumbers(args)
+			if err != nil {
+				return
+			}
+
+			result, _ := calc.Div(numbers...)
+			fmt.Println("Result: ", result)
+		},
+	}
+
+	rootCmd.AddCommand(cmdDiv)
+	rootCmd.AddCommand(cmdMulti)
+	rootCmd.AddCommand(cmdSub)
 	rootCmd.AddCommand(cmdAdd)
 
 	if err := rootCmd.Execute(); err != nil {

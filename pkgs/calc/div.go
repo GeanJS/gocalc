@@ -1,4 +1,3 @@
-// Package calc has the funcs of a basic calculator
 package calc
 
 import (
@@ -7,20 +6,19 @@ import (
 	"math"
 )
 
-const err = "not enough numbers"
-
-func Add(values ...float64) (string, error) {
+func Div(values ...float64) (string, error) {
 	if len(values) == 0 {
-		return "Error", errors.New(err)
+		return "error: ", errors.New(err)
 	}
 
 	total := values[0]
 	for _, value := range values[1:] {
-		total += value
+		total /= value
 	}
 
 	if total == math.Trunc(total) {
 		return fmt.Sprintf("%d", int64(total)), nil
 	}
+
 	return fmt.Sprintf("%g", total), nil
 }
