@@ -29,7 +29,11 @@ func main() {
 			if err != nil {
 				return 
 			}
-			result, _ := calc.Add(numbers...)
+			result, err := calc.Add(numbers...)
+			if err != nil {
+				fmt.Println(err)
+			}
+
 			fmt.Println("Result: ", result)
 		},
 	}
@@ -43,7 +47,11 @@ func main() {
 				return
 			}
 
-			result, _ := calc.Sub(numbers...)
+			result, err := calc.Sub(numbers...)
+			if err != nil {
+				fmt.Println(err)
+			}
+
 			fmt.Println("Result: ", result)
 		},
 	}
@@ -54,10 +62,13 @@ func main() {
 		Run: func(cmd *cobra.Command, args []string) {
 			numbers, err := utils.StringToNumbers(args)
 			if err != nil {
-				return
+				fmt.Println(err)
 			}
 
-			result, _ := calc.Multi(numbers...)
+			result, err := calc.Multi(numbers...)
+			if err != nil {
+				fmt.Println(err)
+			}
 			fmt.Println("Result: ", result)
 		},
 	}
@@ -68,10 +79,14 @@ func main() {
 		Run: func(cmd *cobra.Command, args []string) {
 			numbers, err := utils.StringToNumbers(args)
 			if err != nil {
-				return
+				fmt.Println(err)
 			}
 
-			result, _ := calc.Div(numbers...)
+			result, err := calc.Div(numbers...)
+			if err != nil {
+				fmt.Println(err)
+			}
+
 			fmt.Println("Result: ", result)
 		},
 	}
