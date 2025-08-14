@@ -12,18 +12,18 @@ import (
 func main() {
 	var rootCmd = &cobra.Command{
 		Use: "gocalc",
-		Short: "CLI Tool for simple math",
-		Long: "CLI Tool build with cobra and go for simple math",
+		Short: "Ferramenta CLI que realiza operações matemáticas básicas",
+		Long: "Ferramenta CLI escrita em Go usando o pacote Cobra, para realizar operações matemáticas básicas",
 		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Println("Welcome to GoCalc")
-			fmt.Println("Use gocalc -h to see the commands")
+			fmt.Println("Bem-vindo ao GoCalc")
+			fmt.Println("Use o comando help para ver as operações disponiveis")
 		},
 	}
 
 	var cmdAdd = &cobra.Command{
 		Use: "add",
-		Short: "add n numbers",
-		Long: "receives a variable quantity of numbers and returns the sum of them",
+		Short: "soma n numeros",
+		Long: "recebe uma quantidade variavel de numeros e retorna o resultado da adição",
 		Run: func(cmd *cobra.Command, args []string) {
 			numbers, err := utils.StringToNumbers(args)
 			if err != nil {
@@ -35,8 +35,8 @@ func main() {
 	}
 	var cmdSub = &cobra.Command {
 		Use: "sub",
-		Short: "sub n numbers",
-		Long: "receives a variablle quantity of numbers and returns the sub of them",
+		Short: "subtrai n numeros",
+		Long: "recebe uma quantidade variavel de numeros e retorna o resultado da subtração",
 		Run: func(cmd *cobra.Command, args []string) {
 			numbers, err := utils.StringToNumbers(args)
 			if err != nil {
@@ -49,8 +49,8 @@ func main() {
 	}
 	var cmdMulti = &cobra.Command{
 		Use: "multi",
-		Short: "multiply n numbers",
-		Long: "receives a variable quatity of numbers and returns the sub of them",
+		Short: "multiplica n numeros",
+		Long: "recebe uma quantidade variavel de numeros e retorna o resultado da multiplicação",
 		Run: func(cmd *cobra.Command, args []string) {
 			numbers, err := utils.StringToNumbers(args)
 			if err != nil {

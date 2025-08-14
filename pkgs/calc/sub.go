@@ -6,6 +6,7 @@ import (
 	"math"
 )
 
+// Sub recebe uma quantidade variada de valores do tipo float64 e retorna uma string e um erro
 func Sub(values ...float64) (string, error) {
 	if len(values) == 0 {
 		return "Error", errors.New(err)

@@ -6,6 +6,7 @@ import (
 	"math"
 )
 
+// Div recebe uma quantidade variada de valores do tipo float64, faz a divisão desses valores e retorna uma string ou erro
 func Div(values ...float64) (string, error) {
 	if len(values) == 0 {
 		return "error: ", errors.New(err)

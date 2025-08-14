@@ -1,4 +1,4 @@
-// Package calc has the funcs of a basic calculator
+// Package calc tem as funções de uma calculadora básica
 package calc
 
 import (
@@ -7,8 +7,10 @@ import (
 	"math"
 )
 
-const err = "not enough numbers"
+// const err é uma mensagem de erro
+const err = "quantidade de valores insuficiente"
 
+// Add recebe uma quantidade variada de valores float64 e retorna uma string e um erro
 func Add(values ...float64) (string, error) {
 	if len(values) == 0 {
 		return "Error", errors.New(err)
