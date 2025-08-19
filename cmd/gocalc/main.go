@@ -17,6 +17,7 @@ func main() {
 		Run: func(cmd *cobra.Command, args []string) {
 			fmt.Println("Bem-vindo ao GoCalc")
 			fmt.Println("Use o comando help para ver as operações disponiveis")
+			fmt.Println("Se for utilizar um valor negativo, coloque '--' após o comando")
 		},
 	}
 
@@ -91,6 +92,7 @@ func main() {
 		},
 	}
 
+	rootCmd.DisableFlagParsing = true
 	rootCmd.AddCommand(cmdDiv)
 	rootCmd.AddCommand(cmdMulti)
 	rootCmd.AddCommand(cmdSub)
